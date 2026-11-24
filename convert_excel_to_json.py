@@ -1,8 +1,8 @@
 """Excel -> data.json, এবং index.html-এর embedded data refresh করে।
-ব্যবহার: python convert_excel_to_json.py FF Achivment report.xlsx"""
+ব্যবহার: python convert_excel_to_json.py upload_your_file.xlsx"""
 import sys, json, re, datetime
 from openpyxl import load_workbook
-src = sys.argv[1] if len(sys.argv) > 1 else "FF Achivment report.xlsx"
+src = sys.argv[1] if len(sys.argv) > 1 else "upload_your_file.xlsx"
 wb = load_workbook(src, data_only=True); ws = wb.active
 hdr = [c for c in next(ws.iter_rows(min_row=1, max_row=1, values_only=True))]
 cats = [(i, h) for i, h in enumerate(hdr) if h]          # category name sits on first col of each 5-col block
